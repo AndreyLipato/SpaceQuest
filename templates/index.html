@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block style %}
+   body {
+    background-image: url(../static/img/space.png);
+    background-size: cover;
+   }
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <form action="login">
+        <button>Вход</button>
+    </form>
+
+    <form action="reg">
+        <button>Регистрация</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+?Моя комната?
+{% endblock %}
+
+{% block style %}
+html { height: 100%; }
+body {
+    display: flex;
+    margin: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+p {
+    color: black;
+}
+a {
+    text-decoration: none;
+}
+.content {
+    position: relative;
+		}
+.content img {
+    max-width: 100%;
+    max-height: 99vh;
+}
+.content a {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+}
+.screen {
+    top: 40%;
+    left: 6%;
+    width: 16%;
+    height: 25%;
+    border-radius: 40%;
+}
+.galack {
+    top: 45%;
+    left: 68%;
+    width: 22%;
+    height: 40%;
+    border-radius: 40%;
+}
+.date {
+    top: 20%;
+    left: 32.5%;
+    width: 10%;
+    height: 3%;
+    border-radius: 20%;
+}
+.time {
+    top: 18%;
+    left: 30%;
+    width: 10%;
+    height: 5%;
+    border-radius: 20%;
+}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+        <form action="/login">
+            <button>Выход</button>
+        </form>
+        <img src="../static/img/room308.png" width="1920" height="1080">
+		<a class="screen" href='/room/308/screen'></a>
+        <a class="galack" href='/room/308/horoscope'></a>
+        <a class="date">
+            <p id="curdate"></p>
+        </a>
+        <a class="time">
+            <p id="curtime"></p>
+        </a>
+
+	</div>
+
+<script>
+	function f() {
+		const d = new Date();
+		const two = num => num > 9 ? num : `0${num}`;
+		document.getElementById('curtime').innerText = `${two(d.getHours())}:${two(d.getMinutes())}`;
+		document.getElementById('curdate').innerText = `${two(d.getDate())}-${two(d.getMonth() + 1)}-${d.getFullYear()}`;
+		if (d.getDate() == 6 && d.getMonth() == 6 && d.getFullYear() == 2042 && d.getHours() == 20 && d.getMinutes() == 0){
+			window.location.href = "/end"
+		}
+	}
+	f();
+	setInterval(f, 1000);
+</script>
+{% endblock %}

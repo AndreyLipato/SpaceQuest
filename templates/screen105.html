@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Монитор105
+{% endblock %}
+
+{% block style %}
+html { height: 100%; }
+body {
+    display: flex;
+    margin: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+p {
+    color: black;
+    font-size: 150%;
+}
+a {
+    text-decoration: none;
+}
+.content {
+    position: relative;
+}
+.content img {
+    max-width: 100%;
+    max-height: 99vh;
+}
+.content a {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    }
+.text {
+    top: 20%;
+    left: 7%;
+    width: 85%;
+    height: 75%;
+    border-radius: 10%;
+}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <img src="/static/img/screen.png" width="1920" height="1080">
+        <a class="text">
+            <p>День 1344</p>
+            <p>День проходит спокойно, заключённые не буянят. Попытка побега 308-ого предотвращена уже неделю назад,
+                а его комнату всё никак не могут привести в порядок... Складывается ощущение, что заключёный
+                здесь я! Ну ничего, ещё пару лет и меня отпрявят на заслуженный отдых.</p>
+            <p>Конец заметки</p>
+        </a>
+    </div>
+{% endblock %}
